@@ -1,0 +1,43 @@
+<section class="view-playlist">
+    <mat-card class="home-card" *ngIf="showPlaylist">
+        <button matTooltip="Create playlist" mat-fab color="primary" style="float: right;" (click)="createPlaylist()">
+            <mat-icon>add</mat-icon>
+        </button>
+
+        <h4 class="no-playlists" *ngIf="playList.length === 0">Playlists yet to be added</h4>
+
+        <mat-action-list>
+            <button class="list-option" (click)="playListClick(playListObj)" mat-list-item
+                *ngFor="let playListObj of playList">
+                {{playListObj.name}}
+            </button>
+        </mat-action-list>
+    </mat-card>
+
+    <mat-card class="home-card" *ngIf="!showPlaylist">
+        <h4>{{selectedPlaylist?.name}}</h4>
+
+        <button matTooltip="Add song" mat-fab color="primary" style="float: right;" (click)="addSongs()">
+            <mat-icon>library_music</mat-icon>
+        </button>
+
+        <button matTooltip="Shuffle songs" mat-fab color="primary" style="float: right; margin-right: 1em;"
+            (click)="shuffleSongs()">
+            <mat-icon>cached</mat-icon>
+        </button>
+
+        <button matTooltip="Back" mat-fab color="primary" style="float: right; margin-right: 1em;"
+            (click)="showPlaylist = true">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <mat-action-list>
+            <button class="list-option" mat-list-item *ngFor="let song of selectedPlaylist.songs; let i = index;">
+                <div style="width: 90%">{{song.title}}</div>
+                <div style="width: 10%">
+                    <mat-icon (click)="deleteSongsInPlaylist(i)">delete</mat-icon>
+                </div>
+            </button>
+        </mat-action-list>
+    </mat-card>
+</section>

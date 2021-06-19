@@ -1,0 +1,27 @@
+<section class="home">
+    <mat-tab-group>
+        <mat-tab label="All Songs">
+            <mat-card class="home-card songs-tab">
+                <mat-form-field class="w-100">
+                    <input matInput autocomplete="off" placeholder="Search songs" (ngModelChange)="filterSongs($event)"
+                        [(ngModel)]="searchSongs">
+                </mat-form-field>
+
+                <mat-action-list>
+                    <button class="list-option" mat-list-item *ngFor="let song of filteredSongsList">
+                        <div class="w-100">Song Title : {{song.title}}</div>
+                        <div class="w-100">Album ID : {{song.albumId}}</div>
+                    </button>
+                </mat-action-list>
+            </mat-card>
+        </mat-tab>
+
+        <mat-tab label="Playlists">
+            <app-view-playlist [songsList]="songsList"></app-view-playlist>
+        </mat-tab>
+    </mat-tab-group>
+</section>
+
+<div class="spinner" *ngIf="showSpinner">
+    <mat-spinner class="spinner-element"></mat-spinner>
+</div>

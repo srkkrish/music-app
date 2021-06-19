@@ -1,0 +1,51 @@
+.home {
+    width: 100%;
+    ::ng-deep mat-tab-group {
+        .mat-tab-header {
+            border-bottom: none;
+        }
+        .mat-tab-labels {
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .home-card {
+        height: 100%;
+        width: 100%;
+    }
+
+    ::ng-deep .mat-action-list {
+        margin-top: 1em;
+    }
+
+    .list-option {
+        border: 1px solid lightgrey;
+        margin-bottom: 0.5rem;
+        height: 55px;
+    }
+
+    .songs-tab ::ng-deep .mat-list-item-content {
+        display: block !important;
+        padding: 5px 16px !important;
+    }
+}
+
+.spinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: white;
+    opacity: 0.5;
+    .spinner-element {
+        position: relative;
+        left: 45%;
+        top: 45%;
+    }
+}
